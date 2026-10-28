@@ -5,8 +5,13 @@ work/apktool_base/
 work/jadx/
 work/xapk/
 work/shortswave.xapk
-work/sweep/
-work/sweep4/
+work/sweep/*
+work/sweep4/*
+# ...but the catalogue itself is what /api/catalogue serves, so ship the two
+# small files and keep the sweep's databases/probes out of the repo
+!work/sweep4/titles.tsv
+!work/sweep4/title_index.json
+!work/sweep/title_index.json
 work/dl.html
 work/apkpure.html
 

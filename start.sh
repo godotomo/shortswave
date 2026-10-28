@@ -6,6 +6,7 @@
 #   PORT=8011 ./start.sh    # port lain
 #   SW_DB=sw_test.db ./start.sh
 #   FOREGROUND=1 ./start.sh # jangan background (log ke terminal)
+#   SW_BUILD_UI=0 ./start.sh # jangan bangun UI otomatis walau dist belum ada
 #
 # Lingkungan (opsional):
 #   PORT     port HTTP            (default 8000)
@@ -55,10 +56,24 @@ if [ "${SW_H264:-1}" != "0" ] && ! command -v ffmpeg >/dev/null 2>&1; then
   log "           pasang: pkg install ffmpeg    atau jalankan dengan SW_H264=0"
 fi
 
-# UI statis (opsional; kalau belum dibangun server tetap jalan sebagai API)
+# UI statis. Kalau belum dibangun (clone baru), bangun sendiri supaya
+# "git clone && ./start.sh" langsung menyajikan aplikasi yang sama seperti di
+# mesin pembuatnya. Butuh node/npm; tanpa itu server tetap jalan sebagai API.
 if [ ! -f "$WORK/ui/dist/index.html" ]; then
-  log "PERINGATAN: work/ui/dist/index.html belum ada -- UI tidak akan disajikan."
-  log "           bangun dengan: cd work/ui && npm install && npm run build"
+  if [ "${SW_BUILD_UI:-1}" != "0" ] && command -v npm >/dev/null 2>&1; then
+    log "UI belum dibangun -- membangun work/ui (npm install && npm run build)…"
+    if ( cd "$WORK/ui" \
+         && { [ -d node_modules ] || npm install --no-audit --no-fund >/dev/null 2>&1; } \
+         && npm run build >/tmp/shortswave-ui-build.log 2>&1 ); then
+      log "UI siap: work/ui/dist/index.html"
+    else
+      log "PERINGATAN: gagal membangun UI (lihat /tmp/shortswave-ui-build.log)."
+      log "           jalankan manual: cd work/ui && npm install && npm run build"
+    fi
+  else
+    log "PERINGATAN: work/ui/dist/index.html belum ada -- UI tidak akan disajikan."
+    log "           bangun dengan: cd work/ui && npm install && npm run build"
+  fi
 fi
 
 # --- sudah jalan? ----------------------------------------------------------
