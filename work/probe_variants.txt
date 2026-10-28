@@ -1,0 +1,22 @@
+720p/v0.ts -> 200 text/vnd.trolltech.linguist 64
+1080p/v0.ts -> HTTP Error 403: Forbidden
+540p/v0.ts -> HTTP Error 403: Forbidden
+480p/v0.ts -> HTTP Error 403: Forbidden
+360p/v0.ts -> HTTP Error 403: Forbidden
+240p/v0.ts -> HTTP Error 403: Forbidden
+720p_1/v0.ts -> HTTP Error 403: Forbidden
+720p_2/v0.ts -> HTTP Error 403: Forbidden
+h264_720p/v0.ts -> HTTP Error 403: Forbidden
+avc_720p/v0.ts -> HTTP Error 403: Forbidden
+720p/h264/v0.ts -> HTTP Error 403: Forbidden
+720p/avc/v0.ts -> HTTP Error 403: Forbidden
+720p/index.m3u8 -> HTTP Error 403: Forbidden
+720p/v.m3u8 -> HTTP Error 403: Forbidden
+720p/master.m3u8 -> HTTP Error 403: Forbidden
+h264/v0.ts -> HTTP Error 403: Forbidden
+v0.ts -> HTTP Error 403: Forbidden
+index.m3u8 -> HTTP Error 403: Forbidden
+master.m3u8 -> HTTP Error 403: Forbidden
+720p_hevc/v0.ts -> HTTP Error 403: Forbidden
+720p_avc/v0.ts -> HTTP Error 403: Forbidden
+720p_h264/v0.ts -> HTTP Error 403: Forbidden

@@ -1,0 +1,44 @@
+# --- big / generated artefacts (keep the repo light) ------------------------
+work/apk_full/
+work/apk_res/
+work/apktool_base/
+work/jadx/
+work/xapk/
+work/shortswave.xapk
+work/sweep/
+work/sweep4/
+work/dl.html
+work/apkpure.html
+
+# --- build output & deps ---------------------------------------------------
+work/ui/node_modules/
+work/ui/dist/
+__pycache__/
+*.pyc
+
+# --- runtime state ---------------------------------------------------------
+*.log
+*.pid
+*.db
+*.db-journal
+server-*.log
+server-*.pid
+
+# --- local / secrets -------------------------------------------------------
+.cbuddy/
+.tmp/
+work/cls_net/
+work/probe_*.json
+work/play_urls.json
+work/feed_titles.json
+work/seg_test.bin
+work/.task_list.json
+.env
+.env.*
+
+# --- transcode cache / scratch --------------------------------------------
+work/.cache/
+work_swp_test/
+
+# --- unlock state cache (runtime) -----------------------------------------
+work/unlock_cache.json

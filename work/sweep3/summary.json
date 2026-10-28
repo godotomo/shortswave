@@ -1,0 +1,14 @@
+{
+ "generated_at": 1793158578,
+ "seconds": 32.9,
+ "languages": {
+  "ms": 11
+ },
+ "rows_total": 11,
+ "distinct_dramas": 11,
+ "multi_language_dramas": 0,
+ "duplicate_title_texts": 0,
+ "hot_search_words": {
+  "ms": 10
+ }
+}
