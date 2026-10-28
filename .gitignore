@@ -47,3 +47,4 @@ work_swp_test/
 
 # --- unlock state cache (runtime) -----------------------------------------
 work/unlock_cache.json
+work/ui-build.log

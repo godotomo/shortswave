@@ -62,12 +62,13 @@ fi
 if [ ! -f "$WORK/ui/dist/index.html" ]; then
   if [ "${SW_BUILD_UI:-1}" != "0" ] && command -v npm >/dev/null 2>&1; then
     log "UI belum dibangun -- membangun work/ui (npm install && npm run build)…"
+    UIBUILD="$WORK/ui-build.log"   # jangan /tmp: di Termux sering tidak bisa ditulis
     if ( cd "$WORK/ui" \
          && { [ -d node_modules ] || npm install --no-audit --no-fund >/dev/null 2>&1; } \
-         && npm run build >/tmp/shortswave-ui-build.log 2>&1 ); then
+         && npm run build >"$UIBUILD" 2>&1 ); then
       log "UI siap: work/ui/dist/index.html"
     else
-      log "PERINGATAN: gagal membangun UI (lihat /tmp/shortswave-ui-build.log)."
+      log "PERINGATAN: gagal membangun UI (lihat $UIBUILD)."
       log "           jalankan manual: cd work/ui && npm install && npm run build"
     fi
   else
